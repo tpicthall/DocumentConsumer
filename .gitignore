@@ -1,28 +1,28 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+**/*.suo
+**/**/*.suo
+**/*.user
+**/**/*.user
 
-# Precompiled Headers
-*.gch
-*.pch
+bin
+obj
+_ReSharper*
+*.dotCover
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+*.csproj.user
+*.resharper.user
+*.ReSharper.user
+*.cache
+*~
+*.swp
+*.bak
+*.orig
+*.user
 
-# Fortran module files
-*.mod
+log4net.config
+*.configSection
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+NuGet.exe
+packages
 
-# Executables
-*.exe
-*.out
-*.app
+AppPackages/
+build/*
