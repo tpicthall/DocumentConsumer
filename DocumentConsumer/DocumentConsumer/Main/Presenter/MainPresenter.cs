@@ -1,11 +1,7 @@
 ﻿using DocumentConsumer.Main.Handler;
 using DocumentConsumer.Main.Model;
 using DocumentConsumer.Main.View;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DocumentConsumer.Service;
 
 namespace DocumentConsumer.Main.Presenter
 {
@@ -13,11 +9,15 @@ namespace DocumentConsumer.Main.Presenter
     {
         private readonly IMainModel _mainModel;
         private readonly IMainView _mainView;
+        private readonly IFHIRService _fhirService;
 
-        public MainPresenter(IMainModel mainModel, IMainView mainView)
+        public MainPresenter(IMainModel mainModel, IMainView mainView, IFHIRService fhirService)
         {
             _mainModel = mainModel;
             _mainView = mainView;
+            _fhirService = fhirService;
+
+            _mainView.SetMainHandler(this);
         }
 
         public void Initialize()
