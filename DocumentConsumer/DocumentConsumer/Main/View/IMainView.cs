@@ -1,4 +1,6 @@
-﻿using DocumentConsumer.Main.Handler;
+﻿using System;
+using System.Collections.Generic;
+using DocumentConsumer.Main.Handler;
 
 namespace DocumentConsumer.Main.View
 {
@@ -9,5 +11,11 @@ namespace DocumentConsumer.Main.View
         void ShowView();
 
         void CloseView();
+
+        void UpdateStatusBarConnection(string text);
+
+        void EnableDocumentButtons(bool enable);
+
+        void FillResults<T>(Type resultType, List<T> results);
     }
 }

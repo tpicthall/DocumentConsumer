@@ -17,7 +17,7 @@ namespace DocumentConsumer.Configuration
             builder.RegisterType<MainView>().As<IMainView>().SingleInstance();
             builder.RegisterType<MainPresenter>().As<IMainPresenter>().SingleInstance();
 
-            builder.RegisterType<FHIRService>().As<IFHIRService>().SingleInstance();
+            builder.RegisterType<FhirService>().As<IFhirService>().SingleInstance();
 
             Container = builder.Build();
         }

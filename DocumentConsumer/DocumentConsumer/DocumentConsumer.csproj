@@ -71,8 +71,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\FHIRService.cs" />
-    <Compile Include="Service\IFHIRService.cs" />
+    <Compile Include="Service\FhirService.cs" />
+    <Compile Include="Service\IFhirService.cs" />
     <EmbeddedResource Include="Main\View\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>

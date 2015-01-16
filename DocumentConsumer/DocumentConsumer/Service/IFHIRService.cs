@@ -1,14 +1,15 @@
-﻿
+﻿using Hl7.Fhir.Model;
+
 namespace DocumentConsumer.Service
 {
-    interface IFHIRService
+    internal interface IFhirService
     {
-        void CreateConnection(string endpoint);
+        bool CreateConnection(string endpoint);
 
-        void GetDocumentReference(string patientId, string assigningAuthority);
+        DocumentReference GetDocumentReference(string patientId);
 
-        void GetDocumentManifest();
+        void GetDocumentManifest(string patientId);
 
-        byte[] GetBinary();
+        byte[] GetBinary(string url);
     }
 }

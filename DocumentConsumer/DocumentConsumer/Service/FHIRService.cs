@@ -1,34 +1,60 @@
-﻿using Hl7.Fhir.Model;
+﻿using System;
+using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
 
 namespace DocumentConsumer.Service
 {
-    class FHIRService : IFHIRService
+    internal class FhirService : IFhirService
     {
         private FhirClient _fhirClient;
 
-        public void CreateConnection(string endPoint)
+        public bool CreateConnection(string endPoint)
         {
-            if (_fhirClient != null)
+            _fhirClient = null;
+
+            try
             {
-                _fhirClient = null;
+                _fhirClient = new FhirClient(endPoint);
+                return true;
             }
-
-            _fhirClient = new FhirClient(endPoint);
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        public void GetDocumentReference(string patientId, string assigningAuthority)
+        public DocumentReference GetDocumentReference(string patientId)
         {
-            ResourceEntry<DocumentReference> resourceEntry = _fhirClient.Read<DocumentReference>(string.Format("DocumentReference?subject.id={0}|{1}&status=current", assigningAuthority, patientId));
+            try
+            {
+                ResourceEntry<DocumentReference> resourceEntry =
+                    _fhirClient.Read<DocumentReference>(string.Format("DocumentReference/{0}", patientId));
+
+                return resourceEntry.Resource;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
-        public void GetDocumentManifest()
+        public void GetDocumentManifest(string patientId)
         {
-
+            try
+            {
+                ResourceEntry<DocumentManifest> resourceEntry =
+                _fhirClient.Read<DocumentManifest>(string.Format("DocumentManifest/{0}", patientId));
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
+            
         }
 
-        public byte[] GetBinary()
+        public byte[] GetBinary(string url)
         {
+            
             return null;
         }
     }

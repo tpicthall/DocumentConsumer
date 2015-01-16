@@ -1,11 +1,8 @@
-﻿using Autofac;
+﻿using System;
+using System.Windows.Forms;
+using Autofac;
 using DocumentConsumer.Configuration;
 using DocumentConsumer.Main.Presenter;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace DocumentConsumer
 {
