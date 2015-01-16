@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="Configuration\ContainerConfiguration.cs" />
     <Compile Include="Main\Handler\IMainHandler.cs" />
+    <Compile Include="Main\Model\DocManifest.cs" />
+    <Compile Include="Main\Model\DocReference.cs" />
     <Compile Include="Main\Model\IMainModel.cs" />
     <Compile Include="Main\Model\MainModel.cs" />
     <Compile Include="Main\Presenter\IMainPresenter.cs" />
@@ -71,6 +73,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Extensions.cs" />
     <Compile Include="Service\FhirService.cs" />
     <Compile Include="Service\IFhirService.cs" />
     <EmbeddedResource Include="Main\View\MainView.resx">

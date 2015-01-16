@@ -3,7 +3,6 @@ using DocumentConsumer.Main.Handler;
 using DocumentConsumer.Main.Model;
 using DocumentConsumer.Main.View;
 using DocumentConsumer.Service;
-using Hl7.Fhir.Model;
 
 namespace DocumentConsumer.Main.Presenter
 {
@@ -49,15 +48,16 @@ namespace DocumentConsumer.Main.Presenter
 
         public void HandleDocumentReference(string patientId)
         {
-            var result = _fhirService.GetDocumentReference(patientId);
+            List<DocReference> docReferences = _fhirService.GetDocumentReference(patientId);
 
-            _mainView.FillResults(typeof(DocumentReference), new List<DocumentReference> {result});
-
+            _mainView.FillResults(docReferences);
         }
 
         public void HandleDocumentManifest(string patientId)
         {
-            _fhirService.GetDocumentManifest(patientId);
+            List<DocManifest> docManifests = _fhirService.GetDocumentManifest(patientId);
+            
+            _mainView.FillResults(docManifests);
         }
 
         public void HandleBinary(string url)

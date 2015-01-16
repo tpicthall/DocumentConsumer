@@ -1,6 +1,8 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
+using DocumentConsumer.Main.Model;
+using System.Collections.Generic;
 
 namespace DocumentConsumer.Service
 {
@@ -23,14 +25,14 @@ namespace DocumentConsumer.Service
             }
         }
 
-        public DocumentReference GetDocumentReference(string patientId)
+        public List<DocReference> GetDocumentReference(string patientId)
         {
             try
             {
                 ResourceEntry<DocumentReference> resourceEntry =
                     _fhirClient.Read<DocumentReference>(string.Format("DocumentReference/{0}", patientId));
 
-                return resourceEntry.Resource;
+                return new List<DocReference> {resourceEntry.Resource.Map()};
             }
             catch (Exception)
             {
@@ -38,18 +40,19 @@ namespace DocumentConsumer.Service
             }
         }
 
-        public void GetDocumentManifest(string patientId)
+        public List<DocManifest> GetDocumentManifest(string patientId)
         {
             try
             {
                 ResourceEntry<DocumentManifest> resourceEntry =
                 _fhirClient.Read<DocumentManifest>(string.Format("DocumentManifest/{0}", patientId));
+
+                return new List<DocManifest> {resourceEntry.Resource.Map()};
             }
             catch (Exception)
             {                
-                throw;
+                return null;
             }
-            
         }
 
         public byte[] GetBinary(string url)

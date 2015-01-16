@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tsslConnection = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtFhirServer = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,7 +41,7 @@
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnConnect = new System.Windows.Forms.Button();
-            this.tsslConnection = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label4 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             this.SuspendLayout();
@@ -64,12 +64,18 @@
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // tsslConnection
+            // 
+            this.tsslConnection.Name = "tsslConnection";
+            this.tsslConnection.Size = new System.Drawing.Size(0, 17);
+            // 
             // txtFhirServer
             // 
             this.txtFhirServer.Location = new System.Drawing.Point(87, 27);
             this.txtFhirServer.Name = "txtFhirServer";
             this.txtFhirServer.Size = new System.Drawing.Size(266, 20);
             this.txtFhirServer.TabIndex = 2;
+            this.txtFhirServer.Text = "http://spark.furore.com/fhir/";
             // 
             // label1
             // 
@@ -122,15 +128,20 @@
             // 
             this.dgvResults.AllowUserToAddRows = false;
             this.dgvResults.AllowUserToDeleteRows = false;
+            this.dgvResults.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResults.Location = new System.Drawing.Point(12, 141);
+            this.dgvResults.Location = new System.Drawing.Point(12, 154);
             this.dgvResults.Name = "dgvResults";
             this.dgvResults.ReadOnly = true;
-            this.dgvResults.Size = new System.Drawing.Size(692, 150);
+            this.dgvResults.Size = new System.Drawing.Size(692, 184);
             this.dgvResults.TabIndex = 8;
             // 
             // txtOutput
             // 
+            this.txtOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtOutput.Location = new System.Drawing.Point(12, 357);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
@@ -157,16 +168,21 @@
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
-            // tsslConnection
+            // label4
             // 
-            this.tsslConnection.Name = "tsslConnection";
-            this.tsslConnection.Size = new System.Drawing.Size(0, 17);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 138);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Results:";
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 625);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtOutput);
@@ -205,5 +221,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.ToolStripStatusLabel tsslConnection;
+        private System.Windows.Forms.Label label4;
     }
 }

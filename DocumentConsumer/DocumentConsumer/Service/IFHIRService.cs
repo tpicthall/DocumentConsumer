@@ -1,4 +1,5 @@
-﻿using Hl7.Fhir.Model;
+﻿using DocumentConsumer.Main.Model;
+using System.Collections.Generic;
 
 namespace DocumentConsumer.Service
 {
@@ -6,9 +7,9 @@ namespace DocumentConsumer.Service
     {
         bool CreateConnection(string endpoint);
 
-        DocumentReference GetDocumentReference(string patientId);
+        List<DocReference> GetDocumentReference(string patientId);
 
-        void GetDocumentManifest(string patientId);
+        List<DocManifest> GetDocumentManifest(string patientId);
 
         byte[] GetBinary(string url);
     }

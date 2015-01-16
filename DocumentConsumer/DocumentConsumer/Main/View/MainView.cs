@@ -40,30 +40,22 @@ namespace DocumentConsumer.Main.View
             btnDocumentManifest.Enabled = enable;
         }
 
-        public void FillResults<T>(Type resultType, List<T> results)
+        public void FillResults<T>(List<T> results)
         {
             dgvResults.DataSource = results;
-
-                        // documentManifestBindingSource
-            // 
-         //   this.documentManifestBindingSource.DataSource = typeof(Hl7.Fhir.Model.DocumentManifest);
-
-           // this.dgvResults.DataSource = this.documentManifestBindingSource;
-
-         
         }
 
-        private void btnConnect_Click(object sender, System.EventArgs e)
+        private void btnConnect_Click(object sender, EventArgs e)
         {
             _mainHandler.HandleConnect(txtFhirServer.Text);
         }
 
-        private void btnDocumentReference_Click(object sender, System.EventArgs e)
+        private void btnDocumentReference_Click(object sender, EventArgs e)
         {
             _mainHandler.HandleDocumentReference(txtPatientId.Text);
         }
 
-        private void btnDocumentManifest_Click(object sender, System.EventArgs e)
+        private void btnDocumentManifest_Click(object sender, EventArgs e)
         {
             _mainHandler.HandleDocumentManifest(txtPatientId.Text);
         }
