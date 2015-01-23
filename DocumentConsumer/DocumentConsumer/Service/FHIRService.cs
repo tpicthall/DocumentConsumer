@@ -57,8 +57,20 @@ namespace DocumentConsumer.Service
 
         public byte[] GetBinary(string url)
         {
-            
-            return null;
+            try
+            {
+                var blah = _fhirClient.Read(url);
+
+
+              
+
+                return null;
+
+            }
+            catch (Exception)
+            {
+                return null;    
+            }
         }
     }
 }

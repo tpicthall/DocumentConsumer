@@ -18,8 +18,7 @@ namespace DocumentConsumer.Service
                     documentReference.Confidentiality.SelectMany(confidentiality => confidentiality.Coding)
                         .Aggregate(string.Empty, (current, coding) => current + (coding.Display + ", "))
                         .TrimEnd(new[] { ' ', ',' }),
-                DocumentStatus =
-                    documentReference.DocStatus.Coding.Aggregate(string.Empty,
+                DocumentStatus = documentReference.DocStatus == null ? null : documentReference.DocStatus.Coding.Aggregate(string.Empty,
                         (current, coding) => current + (coding.Code + ", ")).TrimEnd(new[] { ' ', ',' }),
                 Location = documentReference.Location,
                 Subject = documentReference.Subject.Display,

@@ -26,5 +26,11 @@ namespace DocumentConsumer.Main.Handler
         /// </summary>
         /// <param name="url">The URL to retrieve the file from</param>
         void HandleBinary(string url);
+
+        /// <summary>
+        /// Handle when a DataGridViewLinkCell is clicked
+        /// </summary>
+        /// <param name="cellText">Text from the cell</param>
+        void HandleCellClick(string cellText);
     }
 }

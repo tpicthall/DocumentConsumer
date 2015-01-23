@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using DocumentConsumer.Main.Handler;
 using System.Windows.Forms;
 
@@ -60,7 +61,31 @@ namespace DocumentConsumer.Main.View
             _mainHandler.HandleDocumentManifest(txtPatientId.Text);
         }
 
-        
+        private void dgvResults_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow r in from DataGridViewRow r in dgvResults.Rows
+                from DataGridViewColumn c in dgvResults.Columns
+                where "Location".Equals(c.Name)
+                select r)
+            {
+                r.Cells["Location"] = new DataGridViewLinkCell();
+            }
 
+            foreach (DataGridViewRow r in from DataGridViewRow r in dgvResults.Rows
+                                          from DataGridViewColumn c in dgvResults.Columns
+                                          where "Content".Equals(c.Name)
+                                          select r)
+            {
+                r.Cells["Content"] = new DataGridViewLinkCell();
+            }
+        }
+
+        private void dgvResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvResults.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewLinkCell)
+            {
+                _mainHandler.HandleCellClick(dgvResults.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string);
+            }
+        }
     }
 }

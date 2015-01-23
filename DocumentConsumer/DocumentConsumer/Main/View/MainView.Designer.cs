@@ -136,6 +136,8 @@
             this.dgvResults.ReadOnly = true;
             this.dgvResults.Size = new System.Drawing.Size(692, 184);
             this.dgvResults.TabIndex = 8;
+            this.dgvResults.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellContentClick);
+            this.dgvResults.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvResults_DataBindingComplete);
             // 
             // txtOutput
             // 
