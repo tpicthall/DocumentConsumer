@@ -58,20 +58,20 @@ namespace DocumentConsumer.Main.Presenter
             }
         }
 
-        public void HandleDocumentReference(string subject)
+        public void HandleDocumentReference(string searchParameter, string searchValue)
         {
             _currentFhirCall = FhirCalls.DocumentReference;
 
-            List<DocReference> docReferences = _fhirService.SearchDocumentReference(subject);
+            List<DocReference> docReferences = _fhirService.SearchDocumentReference(searchParameter, searchValue);
 
             _mainView.FillResults(docReferences);
         }
 
-        public void HandleDocumentManifest(string subject)
+        public void HandleDocumentManifest(string searchParameter, string searchValue)
         {
             _currentFhirCall = FhirCalls.DocumentManifest;
 
-            List<DocManifest> docManifests = _fhirService.SearchDocumentManifest(subject);
+            List<DocManifest> docManifests = _fhirService.SearchDocumentManifest(searchParameter, searchValue);
 
             _mainView.FillResults(docManifests);
         }

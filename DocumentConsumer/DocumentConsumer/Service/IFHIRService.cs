@@ -7,9 +7,9 @@ namespace DocumentConsumer.Service
     {
         bool CreateConnection(string endpoint);
 
-        List<DocReference> SearchDocumentReference(string subject);
+        List<DocReference> SearchDocumentReference(string searchParameter, string searchValue);
 
-        List<DocManifest> SearchDocumentManifest(string subject);
+        List<DocManifest> SearchDocumentManifest(string searchParameter, string searchValue);
 
         DocReference GetDocumentReference(string documentReferenceId);
 

@@ -26,10 +26,10 @@ namespace DocumentConsumer.Service
             }
         }
 
-        public List<DocReference> SearchDocumentReference(string subject)
+        public List<DocReference> SearchDocumentReference(string searchParameter, string searchValue)
         {
             Query q = new Query();
-            q.AddParameter("subject", subject);
+            q.AddParameter(searchParameter, searchValue);
             q.ResourceType = "DocumentReference";
             Bundle responses = _fhirClient.Search(q);
 
@@ -38,10 +38,10 @@ namespace DocumentConsumer.Service
                 select (entry.Resource as DocumentReference).Map()).ToList();
         }
 
-        public List<DocManifest> SearchDocumentManifest(string subject)
+        public List<DocManifest> SearchDocumentManifest(string searchParameter, string searchValue)
         {
             Query q = new Query();
-            q.AddParameter("subject", subject);
+            q.AddParameter(searchParameter, searchValue);
             q.ResourceType = "DocumentManifest";
             Bundle responses = _fhirClient.Search(q);
 

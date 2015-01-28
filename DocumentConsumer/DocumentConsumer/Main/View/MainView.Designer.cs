@@ -33,8 +33,7 @@
             this.tsslConnection = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtFhirServer = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSubject = new System.Windows.Forms.TextBox();
+            this.txtSeachValue = new System.Windows.Forms.TextBox();
             this.btnDocumentReference = new System.Windows.Forms.Button();
             this.btnDocumentManifest = new System.Windows.Forms.Button();
             this.dgvResults = new System.Windows.Forms.DataGridView();
@@ -42,6 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnConnect = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtSearchParameter = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +75,7 @@
             this.txtFhirServer.Name = "txtFhirServer";
             this.txtFhirServer.Size = new System.Drawing.Size(266, 20);
             this.txtFhirServer.TabIndex = 0;
-            this.txtFhirServer.Text = "http://spark.furore.com/fhir/";
+            this.txtFhirServer.Text = "http://10.242.13.17:8090/FHIR";
             // 
             // label1
             // 
@@ -86,29 +86,21 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "FHIR Server:";
             // 
-            // label2
+            // txtSeachValue
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 89);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Subject:";
-            // 
-            // txtSubject
-            // 
-            this.txtSubject.Location = new System.Drawing.Point(87, 86);
-            this.txtSubject.Name = "txtSubject";
-            this.txtSubject.Size = new System.Drawing.Size(266, 20);
-            this.txtSubject.TabIndex = 2;
+            this.txtSeachValue.Location = new System.Drawing.Point(168, 86);
+            this.txtSeachValue.Name = "txtSeachValue";
+            this.txtSeachValue.Size = new System.Drawing.Size(266, 20);
+            this.txtSeachValue.TabIndex = 3;
+            this.txtSeachValue.Text = "urn:oid:1.3.6.1.4.1.38674|70dca78a-fe7a-4841-adba-88b131fd963e";
             // 
             // btnDocumentReference
             // 
             this.btnDocumentReference.Enabled = false;
-            this.btnDocumentReference.Location = new System.Drawing.Point(87, 112);
+            this.btnDocumentReference.Location = new System.Drawing.Point(168, 112);
             this.btnDocumentReference.Name = "btnDocumentReference";
             this.btnDocumentReference.Size = new System.Drawing.Size(130, 23);
-            this.btnDocumentReference.TabIndex = 3;
+            this.btnDocumentReference.TabIndex = 4;
             this.btnDocumentReference.Text = "Document Reference";
             this.btnDocumentReference.UseVisualStyleBackColor = true;
             this.btnDocumentReference.Click += new System.EventHandler(this.btnDocumentReference_Click);
@@ -116,10 +108,10 @@
             // btnDocumentManifest
             // 
             this.btnDocumentManifest.Enabled = false;
-            this.btnDocumentManifest.Location = new System.Drawing.Point(223, 112);
+            this.btnDocumentManifest.Location = new System.Drawing.Point(304, 112);
             this.btnDocumentManifest.Name = "btnDocumentManifest";
             this.btnDocumentManifest.Size = new System.Drawing.Size(130, 23);
-            this.btnDocumentManifest.TabIndex = 4;
+            this.btnDocumentManifest.TabIndex = 5;
             this.btnDocumentManifest.Text = "Document Manifest";
             this.btnDocumentManifest.UseVisualStyleBackColor = true;
             this.btnDocumentManifest.Click += new System.EventHandler(this.btnDocumentManifest_Click);
@@ -136,6 +128,7 @@
             this.dgvResults.ReadOnly = true;
             this.dgvResults.Size = new System.Drawing.Size(692, 184);
             this.dgvResults.TabIndex = 5;
+            this.dgvResults.TabStop = false;
             this.dgvResults.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellContentClick);
             this.dgvResults.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvResults_DataBindingComplete);
             // 
@@ -180,11 +173,20 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Results:";
             // 
+            // txtSearchParameter
+            // 
+            this.txtSearchParameter.Location = new System.Drawing.Point(12, 86);
+            this.txtSearchParameter.Name = "txtSearchParameter";
+            this.txtSearchParameter.Size = new System.Drawing.Size(150, 20);
+            this.txtSearchParameter.TabIndex = 2;
+            this.txtSearchParameter.Text = "subject:Patient.identifier";
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 625);
+            this.Controls.Add(this.txtSearchParameter);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.label3);
@@ -192,8 +194,7 @@
             this.Controls.Add(this.dgvResults);
             this.Controls.Add(this.btnDocumentManifest);
             this.Controls.Add(this.btnDocumentReference);
-            this.Controls.Add(this.txtSubject);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtSeachValue);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFhirServer);
             this.Controls.Add(this.statusStrip1);
@@ -215,8 +216,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.TextBox txtFhirServer;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtSubject;
+        private System.Windows.Forms.TextBox txtSeachValue;
         private System.Windows.Forms.Button btnDocumentReference;
         private System.Windows.Forms.Button btnDocumentManifest;
         private System.Windows.Forms.DataGridView dgvResults;
@@ -225,5 +225,6 @@
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.ToolStripStatusLabel tsslConnection;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtSearchParameter;
     }
 }

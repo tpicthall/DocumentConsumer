@@ -11,14 +11,16 @@
         /// <summary>
         /// Handle when the Document Reference button is clicked
         /// </summary>
-        /// <param name="subject">Subject to use</param>
-        void HandleDocumentReference(string subject);
+        /// <param name="searchParameter">Search parameter</param>
+        /// <param name="searchValue">Search value</param>
+        void HandleDocumentReference(string searchParameter, string searchValue);
 
         /// <summary>
         /// Handle when the Document Manifest button is clicked
         /// </summary>
-        /// <param name="subject">Subject to use</param>
-        void HandleDocumentManifest(string subject);
+        /// <param name="searchParameter">Search parameter</param>
+        /// <param name="searchValue">Search value</param>
+        void HandleDocumentManifest(string searchParameter, string searchValue);
 
         /// <summary>
         /// Handle when the Binary link is clicked
