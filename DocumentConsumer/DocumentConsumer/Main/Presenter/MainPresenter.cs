@@ -17,16 +17,14 @@ namespace DocumentConsumer.Main.Presenter
             DocumentReference
         };
 
-        private readonly IMainModel _mainModel;
         private readonly IMainView _mainView;
         private readonly IFhirService _fhirService;
 
         private FhirCalls _currentFhirCall;
         private string _currentEndpoint;
 
-        public MainPresenter(IMainModel mainModel, IMainView mainView, IFhirService fhirService)
+        public MainPresenter(IMainView mainView, IFhirService fhirService)
         {
-            _mainModel = mainModel;
             _mainView = mainView;
             _fhirService = fhirService;
 
@@ -100,9 +98,10 @@ namespace DocumentConsumer.Main.Presenter
             {
                 _currentFhirCall = FhirCalls.DocumentReference;
 
-                DocReference docReference = _fhirService.GetDocumentReference(cellText.Substring(cellText.IndexOf('/') + 1));
-                
-                _mainView.FillResults(new List<DocReference>{ docReference });
+                DocReference docReference =
+                    _fhirService.GetDocumentReference(cellText.Substring(cellText.IndexOf('/') + 1));
+
+                _mainView.FillResults(new List<DocReference> {docReference});
             }
             else
             {

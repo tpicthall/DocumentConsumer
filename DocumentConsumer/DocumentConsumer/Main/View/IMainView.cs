@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DocumentConsumer.Main.Handler;
 
 namespace DocumentConsumer.Main.View
 {
-    interface IMainView
+    internal interface IMainView
     {
         void SetMainHandler(IMainHandler mainHandler);
 

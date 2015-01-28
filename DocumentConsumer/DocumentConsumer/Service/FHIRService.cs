@@ -52,7 +52,8 @@ namespace DocumentConsumer.Service
 
         public DocReference GetDocumentReference(string documentReferenceId)
         {
-            ResourceEntry<DocumentReference> resouceEntry = _fhirClient.Read<DocumentReference>("DocumentReference/" + documentReferenceId);
+            ResourceEntry<DocumentReference> resouceEntry =
+                _fhirClient.Read<DocumentReference>("DocumentReference/" + documentReferenceId);
 
             return resouceEntry.Resource.Map();
         }

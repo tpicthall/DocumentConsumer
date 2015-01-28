@@ -11,21 +11,26 @@ namespace DocumentConsumer.Service
         {
             return new DocReference
             {
-                Author = 
-                    documentReference.Author == null ? null :
-                    documentReference.Author.Aggregate(string.Empty,
-                        (current, author) => current + (author.Display + ", ")).TrimEnd(new[] { ' ', ',' }),
-                Confidentiality =
-                    documentReference.Confidentiality.SelectMany(confidentiality => confidentiality.Coding)
+                Author =
+                    documentReference.Author == null
+                        ? null
+                        : documentReference.Author.Aggregate(string.Empty,
+                            (current, author) => current + (author.Display + ", ")).TrimEnd(new[] {' ', ','}),
+                Confidentiality = documentReference.Confidentiality == null
+                    ? null
+                    : documentReference.Confidentiality.SelectMany(confidentiality => confidentiality.Coding)
                         .Aggregate(string.Empty, (current, coding) => current + (coding.Display + ", "))
-                        .TrimEnd(new[] { ' ', ',' }),
-                DocumentStatus = documentReference.DocStatus == null ? null : documentReference.DocStatus.Coding.Aggregate(string.Empty,
-                        (current, coding) => current + (coding.Code + ", ")).TrimEnd(new[] { ' ', ',' }),
+                        .TrimEnd(new[] {' ', ','}),
+                DocumentStatus =
+                    documentReference.DocStatus == null
+                        ? null
+                        : documentReference.DocStatus.Coding.Aggregate(string.Empty,
+                            (current, coding) => current + (coding.Code + ", ")).TrimEnd(new[] {' ', ','}),
                 Location = documentReference.Location,
                 Subject = documentReference.Subject.Display,
                 Type =
                     documentReference.Type.Coding.Aggregate(string.Empty,
-                        (current, coding) => current + (coding.Display + ", ")).TrimEnd(new[] { ' ', ',' })
+                        (current, coding) => current + (coding.Display + ", ")).TrimEnd(new[] {' ', ','})
             };
         }
 

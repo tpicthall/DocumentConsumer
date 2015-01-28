@@ -1,7 +1,6 @@
-﻿
-namespace DocumentConsumer.Main.Presenter
+﻿namespace DocumentConsumer.Main.Presenter
 {
-    interface IMainPresenter
+    internal interface IMainPresenter
     {
         void Initialize();
 

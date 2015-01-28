@@ -1,5 +1,4 @@
-﻿
-namespace DocumentConsumer.Main.Handler
+﻿namespace DocumentConsumer.Main.Handler
 {
     public interface IMainHandler
     {

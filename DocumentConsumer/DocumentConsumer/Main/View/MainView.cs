@@ -77,9 +77,9 @@ namespace DocumentConsumer.Main.View
             }
 
             foreach (DataGridViewRow r in from DataGridViewRow r in dgvResults.Rows
-                                          from DataGridViewColumn c in dgvResults.Columns
-                                          where "Content".Equals(c.Name)
-                                          select r)
+                from DataGridViewColumn c in dgvResults.Columns
+                where "Content".Equals(c.Name)
+                select r)
             {
                 r.Cells["Content"] = new DataGridViewLinkCell();
             }

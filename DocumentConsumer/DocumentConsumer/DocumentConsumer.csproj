@@ -60,8 +60,6 @@
     <Compile Include="Main\Handler\IMainHandler.cs" />
     <Compile Include="Main\Model\DocManifest.cs" />
     <Compile Include="Main\Model\DocReference.cs" />
-    <Compile Include="Main\Model\IMainModel.cs" />
-    <Compile Include="Main\Model\MainModel.cs" />
     <Compile Include="Main\Presenter\IMainPresenter.cs" />
     <Compile Include="Main\Presenter\MainPresenter.cs" />
     <Compile Include="Main\View\IMainView.cs" />

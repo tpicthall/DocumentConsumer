@@ -1,5 +1,4 @@
-﻿
-namespace DocumentConsumer.Main.Model
+﻿namespace DocumentConsumer.Main.Model
 {
     public class DocManifest
     {
