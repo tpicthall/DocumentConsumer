@@ -74,7 +74,7 @@
             this.txtFhirServer.Location = new System.Drawing.Point(87, 27);
             this.txtFhirServer.Name = "txtFhirServer";
             this.txtFhirServer.Size = new System.Drawing.Size(266, 20);
-            this.txtFhirServer.TabIndex = 2;
+            this.txtFhirServer.TabIndex = 0;
             this.txtFhirServer.Text = "http://spark.furore.com/fhir/";
             // 
             // label1
@@ -100,7 +100,7 @@
             this.txtSubject.Location = new System.Drawing.Point(87, 86);
             this.txtSubject.Name = "txtSubject";
             this.txtSubject.Size = new System.Drawing.Size(266, 20);
-            this.txtSubject.TabIndex = 5;
+            this.txtSubject.TabIndex = 2;
             // 
             // btnDocumentReference
             // 
@@ -108,7 +108,7 @@
             this.btnDocumentReference.Location = new System.Drawing.Point(87, 112);
             this.btnDocumentReference.Name = "btnDocumentReference";
             this.btnDocumentReference.Size = new System.Drawing.Size(130, 23);
-            this.btnDocumentReference.TabIndex = 6;
+            this.btnDocumentReference.TabIndex = 3;
             this.btnDocumentReference.Text = "Document Reference";
             this.btnDocumentReference.UseVisualStyleBackColor = true;
             this.btnDocumentReference.Click += new System.EventHandler(this.btnDocumentReference_Click);
@@ -119,7 +119,7 @@
             this.btnDocumentManifest.Location = new System.Drawing.Point(223, 112);
             this.btnDocumentManifest.Name = "btnDocumentManifest";
             this.btnDocumentManifest.Size = new System.Drawing.Size(130, 23);
-            this.btnDocumentManifest.TabIndex = 7;
+            this.btnDocumentManifest.TabIndex = 4;
             this.btnDocumentManifest.Text = "Document Manifest";
             this.btnDocumentManifest.UseVisualStyleBackColor = true;
             this.btnDocumentManifest.Click += new System.EventHandler(this.btnDocumentManifest_Click);
@@ -135,7 +135,7 @@
             this.dgvResults.Name = "dgvResults";
             this.dgvResults.ReadOnly = true;
             this.dgvResults.Size = new System.Drawing.Size(692, 184);
-            this.dgvResults.TabIndex = 8;
+            this.dgvResults.TabIndex = 5;
             this.dgvResults.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellContentClick);
             this.dgvResults.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvResults_DataBindingComplete);
             // 
@@ -150,7 +150,7 @@
             this.txtOutput.ReadOnly = true;
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtOutput.Size = new System.Drawing.Size(692, 243);
-            this.txtOutput.TabIndex = 9;
+            this.txtOutput.TabIndex = 6;
             // 
             // label3
             // 
@@ -166,7 +166,7 @@
             this.btnConnect.Location = new System.Drawing.Point(359, 27);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 20);
-            this.btnConnect.TabIndex = 11;
+            this.btnConnect.TabIndex = 1;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);

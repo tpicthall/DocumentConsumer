@@ -87,7 +87,7 @@ namespace DocumentConsumer.Main.View
 
         private void dgvResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvResults.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewLinkCell)
+            if (e.RowIndex >= 0 && dgvResults.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewLinkCell)
             {
                 _mainHandler.HandleCellClick(dgvResults.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string);
             }
