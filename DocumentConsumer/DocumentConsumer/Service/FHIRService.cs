@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
 using DocumentConsumer.Main.Model;
@@ -25,34 +26,35 @@ namespace DocumentConsumer.Service
             }
         }
 
-        public List<DocReference> GetDocumentReference(string patientId)
+        public List<DocReference> SearchDocumentReference(string subject)
         {
-            try
-            {
-                ResourceEntry<DocumentReference> resourceEntry =
-                    _fhirClient.Read<DocumentReference>(string.Format("DocumentReference/{0}", patientId));
+            Query q = new Query();
+            q.AddParameter("subject", subject);
+            q.ResourceType = "DocumentReference";
+            Bundle responses = _fhirClient.Search(q);
 
-                return new List<DocReference> {resourceEntry.Resource.Map()};
-            }
-            catch (Exception)
-            {
-                return null;
-            }
+            return (from ResourceEntry entry in responses.Entries
+                where entry.Resource is DocumentReference
+                select (entry.Resource as DocumentReference).Map()).ToList();
         }
 
-        public List<DocManifest> GetDocumentManifest(string patientId)
+        public List<DocManifest> SearchDocumentManifest(string subject)
         {
-            try
-            {
-                ResourceEntry<DocumentManifest> resourceEntry =
-                _fhirClient.Read<DocumentManifest>(string.Format("DocumentManifest/{0}", patientId));
+            Query q = new Query();
+            q.AddParameter("subject", subject);
+            q.ResourceType = "DocumentManifest";
+            Bundle responses = _fhirClient.Search(q);
 
-                return new List<DocManifest> {resourceEntry.Resource.Map()};
-            }
-            catch (Exception)
-            {                
-                return null;
-            }
+            return (from ResourceEntry entry in responses.Entries
+                where entry.Resource is DocumentManifest
+                select (entry.Resource as DocumentManifest).Map()).ToList();
+        }
+
+        public DocReference GetDocumentReference(string documentReferenceId)
+        {
+            ResourceEntry<DocumentReference> resouceEntry = _fhirClient.Read<DocumentReference>("DocumentReference/" + documentReferenceId);
+
+            return resouceEntry.Resource.Map();
         }
 
         public byte[] GetBinary(string url)
@@ -65,7 +67,7 @@ namespace DocumentConsumer.Service
             }
             catch (Exception)
             {
-                return null;    
+                return null;
             }
         }
     }

@@ -58,12 +58,12 @@ namespace DocumentConsumer.Main.View
 
         private void btnDocumentReference_Click(object sender, EventArgs e)
         {
-            _mainHandler.HandleDocumentReference(txtPatientId.Text);
+            _mainHandler.HandleDocumentReference(txtSubject.Text);
         }
 
         private void btnDocumentManifest_Click(object sender, EventArgs e)
         {
-            _mainHandler.HandleDocumentManifest(txtPatientId.Text);
+            _mainHandler.HandleDocumentManifest(txtSubject.Text);
         }
 
         private void dgvResults_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

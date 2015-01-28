@@ -34,7 +34,7 @@
             this.txtFhirServer = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtPatientId = new System.Windows.Forms.TextBox();
+            this.txtSubject = new System.Windows.Forms.TextBox();
             this.btnDocumentReference = new System.Windows.Forms.Button();
             this.btnDocumentManifest = new System.Windows.Forms.Button();
             this.dgvResults = new System.Windows.Forms.DataGridView();
@@ -91,16 +91,16 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Patient ID:";
+            this.label2.Text = "Subject:";
             // 
-            // txtPatientId
+            // txtSubject
             // 
-            this.txtPatientId.Location = new System.Drawing.Point(87, 86);
-            this.txtPatientId.Name = "txtPatientId";
-            this.txtPatientId.Size = new System.Drawing.Size(266, 20);
-            this.txtPatientId.TabIndex = 5;
+            this.txtSubject.Location = new System.Drawing.Point(87, 86);
+            this.txtSubject.Name = "txtSubject";
+            this.txtSubject.Size = new System.Drawing.Size(266, 20);
+            this.txtSubject.TabIndex = 5;
             // 
             // btnDocumentReference
             // 
@@ -192,7 +192,7 @@
             this.Controls.Add(this.dgvResults);
             this.Controls.Add(this.btnDocumentManifest);
             this.Controls.Add(this.btnDocumentReference);
-            this.Controls.Add(this.txtPatientId);
+            this.Controls.Add(this.txtSubject);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFhirServer);
@@ -216,7 +216,7 @@
         private System.Windows.Forms.TextBox txtFhirServer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtPatientId;
+        private System.Windows.Forms.TextBox txtSubject;
         private System.Windows.Forms.Button btnDocumentReference;
         private System.Windows.Forms.Button btnDocumentManifest;
         private System.Windows.Forms.DataGridView dgvResults;

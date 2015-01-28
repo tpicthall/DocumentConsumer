@@ -12,14 +12,14 @@ namespace DocumentConsumer.Main.Handler
         /// <summary>
         /// Handle when the Document Reference button is clicked
         /// </summary>
-        /// <param name="patientId">Patient Id to use</param>
-        void HandleDocumentReference(string patientId);
+        /// <param name="subject">Subject to use</param>
+        void HandleDocumentReference(string subject);
 
         /// <summary>
         /// Handle when the Document Manifest button is clicked
         /// </summary>
-        /// <param name="patientId">Patient Id to use</param>
-        void HandleDocumentManifest(string patientId);
+        /// <param name="subject">Subject to use</param>
+        void HandleDocumentManifest(string subject);
 
         /// <summary>
         /// Handle when the Binary link is clicked

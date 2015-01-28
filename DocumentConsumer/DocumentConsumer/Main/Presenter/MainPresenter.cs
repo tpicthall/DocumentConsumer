@@ -60,20 +60,20 @@ namespace DocumentConsumer.Main.Presenter
             }
         }
 
-        public void HandleDocumentReference(string patientId)
+        public void HandleDocumentReference(string subject)
         {
             _currentFhirCall = FhirCalls.DocumentReference;
 
-            List<DocReference> docReferences = _fhirService.GetDocumentReference(patientId);
+            List<DocReference> docReferences = _fhirService.SearchDocumentReference(subject);
 
             _mainView.FillResults(docReferences);
         }
 
-        public void HandleDocumentManifest(string patientId)
+        public void HandleDocumentManifest(string subject)
         {
             _currentFhirCall = FhirCalls.DocumentManifest;
 
-            List<DocManifest> docManifests = _fhirService.GetDocumentManifest(patientId);
+            List<DocManifest> docManifests = _fhirService.SearchDocumentManifest(subject);
 
             _mainView.FillResults(docManifests);
         }
@@ -98,7 +98,11 @@ namespace DocumentConsumer.Main.Presenter
 
             if (FhirCalls.DocumentManifest.Equals(_currentFhirCall))
             {
-                HandleDocumentReference(cellText.Substring(cellText.IndexOf('/') + 1));
+                _currentFhirCall = FhirCalls.DocumentReference;
+
+                DocReference docReference = _fhirService.GetDocumentReference(cellText.Substring(cellText.IndexOf('/') + 1));
+                
+                _mainView.FillResults(new List<DocReference>{ docReference });
             }
             else
             {

@@ -7,9 +7,11 @@ namespace DocumentConsumer.Service
     {
         bool CreateConnection(string endpoint);
 
-        List<DocReference> GetDocumentReference(string patientId);
+        List<DocReference> SearchDocumentReference(string subject);
 
-        List<DocManifest> GetDocumentManifest(string patientId);
+        List<DocManifest> SearchDocumentManifest(string subject);
+
+        DocReference GetDocumentReference(string documentReferenceId);
 
         byte[] GetBinary(string url);
     }

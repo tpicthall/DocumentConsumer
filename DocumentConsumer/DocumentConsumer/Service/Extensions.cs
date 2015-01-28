@@ -11,7 +11,8 @@ namespace DocumentConsumer.Service
         {
             return new DocReference
             {
-                Author =
+                Author = 
+                    documentReference.Author == null ? null :
                     documentReference.Author.Aggregate(string.Empty,
                         (current, author) => current + (author.Display + ", ")).TrimEnd(new[] { ' ', ',' }),
                 Confidentiality =
