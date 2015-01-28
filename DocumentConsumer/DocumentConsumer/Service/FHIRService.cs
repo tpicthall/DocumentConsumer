@@ -59,13 +59,9 @@ namespace DocumentConsumer.Service
         {
             try
             {
-                var blah = _fhirClient.Read(url);
+                ResourceEntry<Binary> binary = _fhirClient.Read<Binary>(url);
 
-
-              
-
-                return null;
-
+                return binary.Resource.Content;
             }
             catch (Exception)
             {

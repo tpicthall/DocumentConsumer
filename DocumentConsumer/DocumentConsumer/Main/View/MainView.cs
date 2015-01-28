@@ -46,6 +46,11 @@ namespace DocumentConsumer.Main.View
             dgvResults.DataSource = results;
         }
 
+        public void FillOutput(string output)
+        {
+            txtOutput.Text = output;
+        }
+
         private void btnConnect_Click(object sender, EventArgs e)
         {
             _mainHandler.HandleConnect(txtFhirServer.Text);

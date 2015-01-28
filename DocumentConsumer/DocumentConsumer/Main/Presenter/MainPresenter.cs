@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Text;
+using System.Xml.Linq;
 using DocumentConsumer.Main.Handler;
 using DocumentConsumer.Main.Model;
 using DocumentConsumer.Main.View;
@@ -80,9 +82,13 @@ namespace DocumentConsumer.Main.Presenter
         {
             _currentFhirCall = FhirCalls.Binary;
 
-            _fhirService.GetBinary(url);
+            byte[] content = _fhirService.GetBinary(url);
 
-            
+            string s = Encoding.UTF8.GetString(content, 0, content.Length);
+
+            XDocument doc = XDocument.Parse(s);
+
+            _mainView.FillOutput(doc.ToString());
         }
 
         public void HandleCellClick(string cellText)

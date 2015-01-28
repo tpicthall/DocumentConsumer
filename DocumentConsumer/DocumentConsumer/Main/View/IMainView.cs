@@ -17,5 +17,7 @@ namespace DocumentConsumer.Main.View
         void EnableDocumentButtons(bool enable);
 
         void FillResults<T>(List<T> results);
+
+        void FillOutput(string output);
     }
 }
