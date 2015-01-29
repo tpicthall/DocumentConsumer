@@ -80,6 +80,11 @@ namespace DocumentConsumer.Main.Presenter
         {
             _currentFhirCall = FhirCalls.Binary;
 
+            if (url.StartsWith(_currentEndpoint))
+            {
+                url = url.Replace(_currentEndpoint, string.Empty);
+            }
+
             byte[] content = _fhirService.GetBinary(url);
 
             string s = Encoding.UTF8.GetString(content, 0, content.Length);

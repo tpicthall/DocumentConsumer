@@ -18,6 +18,7 @@ namespace DocumentConsumer.Service
             try
             {
                 _fhirClient = new FhirClient(endPoint);
+               // _fhirClient.PreferredFormat = ResourceFormat.Xml;
                 return true;
             }
             catch (Exception)
