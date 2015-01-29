@@ -46,7 +46,7 @@ namespace DocumentConsumer.Service
         {
             return new DocManifest
             {
-                Author = documentManifest.Author.Aggregate(string.Empty,
+                Author = documentManifest.Author == null ? null : documentManifest.Author.Aggregate(string.Empty,
                     (current, author) => current + (author.Display + ", ")).TrimEnd(new[] {' ', ','}),
                 Content =
                     documentManifest.Content.Aggregate(string.Empty,
