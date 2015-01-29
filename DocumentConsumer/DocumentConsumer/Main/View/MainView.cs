@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DocumentConsumer.Main.Handler;
 using System.Windows.Forms;
+using DocumentConsumer.Main.Presenter;
 
 namespace DocumentConsumer.Main.View
 {
@@ -58,7 +59,7 @@ namespace DocumentConsumer.Main.View
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            _mainHandler.HandleConnect(txtFhirServer.Text);
+            _mainHandler.HandleConnect(txtFhirServer.Text, rbJson.Checked ? FhirFormat.Json : FhirFormat.Xml);
         }
 
         private void btnDocumentReference_Click(object sender, EventArgs e)

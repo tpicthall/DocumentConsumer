@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using System.Web.Script.Serialization;
+using DocumentConsumer.Main.Presenter;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
 using DocumentConsumer.Main.Model;
@@ -19,16 +20,30 @@ namespace DocumentConsumer.Service
         public string FhirRequest { get; private set; }
         public string FhirResponse { get; private set; }
 
-        public bool CreateConnection(string endPoint)
+        public bool CreateConnection(string endPoint, FhirFormat fhirFormat)
         {
-            _fhirClient = null;
+            if (_fhirClient != null)
+            {
+                _fhirClient.OnBeforeRequest -= _fhirClient_OnBeforeRequest;
+                _fhirClient.OnAfterResponse -= _fhirClient_OnAfterResponse;
+                _fhirClient = null;
+            }
 
             try
             {
                 _fhirClient = new FhirClient(endPoint);
                 _fhirClient.OnBeforeRequest += _fhirClient_OnBeforeRequest;
                 _fhirClient.OnAfterResponse += _fhirClient_OnAfterResponse;
-               // _fhirClient.PreferredFormat = ResourceFormat.Xml;
+
+                if (FhirFormat.Json.Equals(fhirFormat))
+                {
+                    _fhirClient.PreferredFormat = ResourceFormat.Json;
+                }
+                else
+                {
+                    _fhirClient.PreferredFormat = ResourceFormat.Xml;
+                }
+
                 return true;
             }
             catch (Exception)

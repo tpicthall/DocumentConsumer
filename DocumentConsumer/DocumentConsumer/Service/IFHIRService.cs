@@ -1,5 +1,6 @@
 ﻿using DocumentConsumer.Main.Model;
 using System.Collections.Generic;
+using DocumentConsumer.Main.Presenter;
 
 namespace DocumentConsumer.Service
 {
@@ -8,7 +9,7 @@ namespace DocumentConsumer.Service
         string FhirRequest { get; }
         string FhirResponse { get; }
 
-        bool CreateConnection(string endpoint);
+        bool CreateConnection(string endpoint, FhirFormat fhirFormat);
 
         List<DocReference> SearchDocumentReference(string searchParameter, string searchValue);
 

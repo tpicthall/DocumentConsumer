@@ -47,6 +47,8 @@
             this.txtRequestResponse = new System.Windows.Forms.TextBox();
             this.btnRequest = new System.Windows.Forms.Button();
             this.btnResponse = new System.Windows.Forms.Button();
+            this.rbXml = new System.Windows.Forms.RadioButton();
+            this.rbJson = new System.Windows.Forms.RadioButton();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -59,7 +61,7 @@
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(716, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(618, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -69,7 +71,7 @@
             this.tsslConnection});
             this.statusStrip1.Location = new System.Drawing.Point(0, 603);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(716, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(618, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -135,7 +137,7 @@
             this.dgvResults.Location = new System.Drawing.Point(12, 154);
             this.dgvResults.Name = "dgvResults";
             this.dgvResults.ReadOnly = true;
-            this.dgvResults.Size = new System.Drawing.Size(692, 184);
+            this.dgvResults.Size = new System.Drawing.Size(594, 184);
             this.dgvResults.TabIndex = 5;
             this.dgvResults.TabStop = false;
             this.dgvResults.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellContentClick);
@@ -151,12 +153,12 @@
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ReadOnly = true;
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtOutput.Size = new System.Drawing.Size(281, 237);
+            this.txtOutput.Size = new System.Drawing.Size(240, 237);
             this.txtOutput.TabIndex = 6;
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(359, 27);
+            this.btnConnect.Location = new System.Drawing.Point(471, 27);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 20);
             this.btnConnect.TabIndex = 1;
@@ -196,10 +198,12 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnResponse);
             this.splitContainer1.Panel2.Controls.Add(this.txtRequestResponse);
+            this.splitContainer1.Panel2.Controls.Add(this.btnRequest);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
-            this.splitContainer1.Size = new System.Drawing.Size(692, 256);
-            this.splitContainer1.SplitterDistance = 287;
+            this.splitContainer1.Size = new System.Drawing.Size(594, 256);
+            this.splitContainer1.SplitterDistance = 246;
             this.splitContainer1.TabIndex = 13;
             // 
             // label2
@@ -225,17 +229,17 @@
             this.txtRequestResponse.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRequestResponse.Location = new System.Drawing.Point(3, 16);
+            this.txtRequestResponse.Location = new System.Drawing.Point(3, 45);
             this.txtRequestResponse.Multiline = true;
             this.txtRequestResponse.Name = "txtRequestResponse";
             this.txtRequestResponse.ReadOnly = true;
             this.txtRequestResponse.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtRequestResponse.Size = new System.Drawing.Size(395, 228);
+            this.txtRequestResponse.Size = new System.Drawing.Size(338, 199);
             this.txtRequestResponse.TabIndex = 1;
             // 
             // btnRequest
             // 
-            this.btnRequest.Location = new System.Drawing.Point(440, 112);
+            this.btnRequest.Location = new System.Drawing.Point(3, 16);
             this.btnRequest.Name = "btnRequest";
             this.btnRequest.Size = new System.Drawing.Size(75, 23);
             this.btnRequest.TabIndex = 6;
@@ -245,7 +249,7 @@
             // 
             // btnResponse
             // 
-            this.btnResponse.Location = new System.Drawing.Point(521, 112);
+            this.btnResponse.Location = new System.Drawing.Point(84, 16);
             this.btnResponse.Name = "btnResponse";
             this.btnResponse.Size = new System.Drawing.Size(75, 23);
             this.btnResponse.TabIndex = 7;
@@ -253,13 +257,35 @@
             this.btnResponse.UseVisualStyleBackColor = true;
             this.btnResponse.Click += new System.EventHandler(this.btnResponse_Click);
             // 
+            // rbXml
+            // 
+            this.rbXml.AutoSize = true;
+            this.rbXml.Checked = true;
+            this.rbXml.Location = new System.Drawing.Point(359, 28);
+            this.rbXml.Name = "rbXml";
+            this.rbXml.Size = new System.Drawing.Size(47, 17);
+            this.rbXml.TabIndex = 14;
+            this.rbXml.TabStop = true;
+            this.rbXml.Text = "XML";
+            this.rbXml.UseVisualStyleBackColor = true;
+            // 
+            // rbJson
+            // 
+            this.rbJson.AutoSize = true;
+            this.rbJson.Location = new System.Drawing.Point(412, 28);
+            this.rbJson.Name = "rbJson";
+            this.rbJson.Size = new System.Drawing.Size(53, 17);
+            this.rbJson.TabIndex = 15;
+            this.rbJson.Text = "JSON";
+            this.rbJson.UseVisualStyleBackColor = true;
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 625);
-            this.Controls.Add(this.btnResponse);
-            this.Controls.Add(this.btnRequest);
+            this.ClientSize = new System.Drawing.Size(618, 625);
+            this.Controls.Add(this.rbJson);
+            this.Controls.Add(this.rbXml);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.txtSearchParameter);
             this.Controls.Add(this.label4);
@@ -310,5 +336,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnRequest;
         private System.Windows.Forms.Button btnResponse;
+        private System.Windows.Forms.RadioButton rbXml;
+        private System.Windows.Forms.RadioButton rbJson;
     }
 }

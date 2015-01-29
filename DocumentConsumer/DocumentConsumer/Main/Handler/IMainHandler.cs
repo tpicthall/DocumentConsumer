@@ -1,4 +1,6 @@
-﻿namespace DocumentConsumer.Main.Handler
+﻿using DocumentConsumer.Main.Presenter;
+
+namespace DocumentConsumer.Main.Handler
 {
     public interface IMainHandler
     {
@@ -6,7 +8,8 @@
         /// Handle when the Connect button is clicked
         /// </summary>
         /// <param name="url">URL of FHIR server to connect to</param>
-        void HandleConnect(string url);
+        /// <param name="fhirFormat">Which format to use</param>
+        void HandleConnect(string url, FhirFormat fhirFormat);
 
         /// <summary>
         /// Handle when the Document Reference button is clicked

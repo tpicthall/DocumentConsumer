@@ -8,6 +8,12 @@ using DocumentConsumer.Service;
 
 namespace DocumentConsumer.Main.Presenter
 {
+    public enum FhirFormat
+    {
+        Json,
+        Xml
+    };
+
     internal class MainPresenter : IMainPresenter, IMainHandler
     {
         private enum FhirCalls
@@ -40,9 +46,9 @@ namespace DocumentConsumer.Main.Presenter
             _mainView.ShowView();
         }
 
-        public void HandleConnect(string url)
+        public void HandleConnect(string url, FhirFormat fhirFormat)
         {
-            bool result = _fhirService.CreateConnection(url);
+            bool result = _fhirService.CreateConnection(url, fhirFormat);
 
             if (result)
             {
