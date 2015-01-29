@@ -4,12 +4,16 @@ using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
 using DocumentConsumer.Main.Model;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace DocumentConsumer.Service
 {
     internal class FhirService : IFhirService
     {
         private FhirClient _fhirClient;
+
+        public string FhirRequest { get; private set; }
+        public string FhirResponse { get; private set; }
 
         public bool CreateConnection(string endPoint)
         {
@@ -18,6 +22,8 @@ namespace DocumentConsumer.Service
             try
             {
                 _fhirClient = new FhirClient(endPoint);
+                _fhirClient.OnBeforeRequest += _fhirClient_OnBeforeRequest;
+                _fhirClient.OnAfterResponse += _fhirClient_OnAfterResponse;
                // _fhirClient.PreferredFormat = ResourceFormat.Xml;
                 return true;
             }
@@ -25,6 +31,16 @@ namespace DocumentConsumer.Service
             {
                 return false;
             }
+        }
+  
+        void _fhirClient_OnBeforeRequest(object sender, BeforeRequestEventArgs e)
+        {
+            FhirRequest = JsonConvert.SerializeObject(e.RawRequest, Formatting.Indented);
+        }
+
+        void _fhirClient_OnAfterResponse(object sender, AfterResponseEventArgs e)
+        {
+            FhirResponse = JsonConvert.SerializeObject(e.RawResponse, Formatting.Indented);
         }
 
         public List<DocReference> SearchDocumentReference(string searchParameter, string searchValue)

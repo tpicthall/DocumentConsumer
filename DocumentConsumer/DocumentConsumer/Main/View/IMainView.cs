@@ -18,5 +18,7 @@ namespace DocumentConsumer.Main.View
         void FillResults<T>(List<T> results);
 
         void FillOutput(string output);
+
+        void FillRequestResponse(string requestResponse);
     }
 }

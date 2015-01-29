@@ -113,5 +113,15 @@ namespace DocumentConsumer.Main.Presenter
                 HandleBinary(cellText);
             }
         }
+
+        public void HandleRequestClick()
+        {
+            _mainView.FillRequestResponse(_fhirService.FhirRequest);
+        }
+
+        public void HandleResponseClick()
+        {
+            _mainView.FillRequestResponse(_fhirService.FhirResponse);
+        }
     }
 }

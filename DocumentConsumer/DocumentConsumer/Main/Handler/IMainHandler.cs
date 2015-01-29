@@ -33,5 +33,15 @@
         /// </summary>
         /// <param name="cellText">Text from the cell</param>
         void HandleCellClick(string cellText);
+
+        /// <summary>
+        /// Handle when Request is clicked
+        /// </summary>
+        void HandleRequestClick();
+
+        /// <summary>
+        /// Handle when Response is clicked
+        /// </summary>
+        void HandleResponseClick();
     }
 }

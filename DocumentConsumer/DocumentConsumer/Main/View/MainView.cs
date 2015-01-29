@@ -51,6 +51,11 @@ namespace DocumentConsumer.Main.View
             txtOutput.Text = output;
         }
 
+        public void FillRequestResponse(string requestResponse)
+        {
+            txtRequestResponse.Text = requestResponse;
+        }
+
         private void btnConnect_Click(object sender, EventArgs e)
         {
             _mainHandler.HandleConnect(txtFhirServer.Text);
@@ -91,6 +96,16 @@ namespace DocumentConsumer.Main.View
             {
                 _mainHandler.HandleCellClick(dgvResults.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string);
             }
+        }
+
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            _mainHandler.HandleRequestClick();
+        }
+
+        private void btnResponse_Click(object sender, EventArgs e)
+        {
+            _mainHandler.HandleResponseClick();
         }
     }
 }

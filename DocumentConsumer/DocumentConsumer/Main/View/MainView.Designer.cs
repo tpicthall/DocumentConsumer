@@ -38,12 +38,21 @@
             this.btnDocumentManifest = new System.Windows.Forms.Button();
             this.dgvResults = new System.Windows.Forms.DataGridView();
             this.txtOutput = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnConnect = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSearchParameter = new System.Windows.Forms.TextBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtRequestResponse = new System.Windows.Forms.TextBox();
+            this.btnRequest = new System.Windows.Forms.Button();
+            this.btnResponse = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -137,22 +146,13 @@
             this.txtOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOutput.Location = new System.Drawing.Point(12, 357);
+            this.txtOutput.Location = new System.Drawing.Point(3, 16);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ReadOnly = true;
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtOutput.Size = new System.Drawing.Size(692, 243);
+            this.txtOutput.Size = new System.Drawing.Size(281, 237);
             this.txtOutput.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 341);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Output:";
             // 
             // btnConnect
             // 
@@ -181,16 +181,89 @@
             this.txtSearchParameter.TabIndex = 2;
             this.txtSearchParameter.Text = "subject:Patient.identifier";
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(12, 344);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.label2);
+            this.splitContainer1.Panel1.Controls.Add(this.txtOutput);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.txtRequestResponse);
+            this.splitContainer1.Panel2.Controls.Add(this.label3);
+            this.splitContainer1.Size = new System.Drawing.Size(692, 256);
+            this.splitContainer1.SplitterDistance = 287;
+            this.splitContainer1.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Output:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Request / Response:";
+            // 
+            // txtRequestResponse
+            // 
+            this.txtRequestResponse.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRequestResponse.Location = new System.Drawing.Point(3, 16);
+            this.txtRequestResponse.Multiline = true;
+            this.txtRequestResponse.Name = "txtRequestResponse";
+            this.txtRequestResponse.ReadOnly = true;
+            this.txtRequestResponse.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtRequestResponse.Size = new System.Drawing.Size(395, 228);
+            this.txtRequestResponse.TabIndex = 1;
+            // 
+            // btnRequest
+            // 
+            this.btnRequest.Location = new System.Drawing.Point(440, 112);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(75, 23);
+            this.btnRequest.TabIndex = 14;
+            this.btnRequest.Text = "Request";
+            this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
+            // 
+            // btnResponse
+            // 
+            this.btnResponse.Location = new System.Drawing.Point(521, 112);
+            this.btnResponse.Name = "btnResponse";
+            this.btnResponse.Size = new System.Drawing.Size(75, 23);
+            this.btnResponse.TabIndex = 15;
+            this.btnResponse.Text = "Response";
+            this.btnResponse.UseVisualStyleBackColor = true;
+            this.btnResponse.Click += new System.EventHandler(this.btnResponse_Click);
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 625);
+            this.Controls.Add(this.btnResponse);
+            this.Controls.Add(this.btnRequest);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.txtSearchParameter);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnConnect);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtOutput);
             this.Controls.Add(this.dgvResults);
             this.Controls.Add(this.btnDocumentManifest);
             this.Controls.Add(this.btnDocumentReference);
@@ -205,6 +278,12 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,10 +300,15 @@
         private System.Windows.Forms.Button btnDocumentManifest;
         private System.Windows.Forms.DataGridView dgvResults;
         private System.Windows.Forms.TextBox txtOutput;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.ToolStripStatusLabel tsslConnection;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtSearchParameter;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtRequestResponse;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnRequest;
+        private System.Windows.Forms.Button btnResponse;
     }
 }
