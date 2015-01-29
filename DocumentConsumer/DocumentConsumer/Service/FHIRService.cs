@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
+using System.Web.Script.Serialization;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
 using DocumentConsumer.Main.Model;
@@ -11,6 +13,8 @@ namespace DocumentConsumer.Service
     internal class FhirService : IFhirService
     {
         private FhirClient _fhirClient;
+
+        private readonly JavaScriptSerializer _jsSerializer = new JavaScriptSerializer();
 
         public string FhirRequest { get; private set; }
         public string FhirResponse { get; private set; }
@@ -35,12 +39,24 @@ namespace DocumentConsumer.Service
   
         void _fhirClient_OnBeforeRequest(object sender, BeforeRequestEventArgs e)
         {
-            FhirRequest = JsonConvert.SerializeObject(e.RawRequest, Formatting.Indented);
+            StringBuilder sb = new StringBuilder();
+
+            _jsSerializer.Serialize(e.RawRequest, sb);
+
+            var obj = JsonConvert.DeserializeObject(sb.ToString());
+
+            FhirRequest = JsonConvert.SerializeObject(obj, Formatting.Indented);
         }
 
         void _fhirClient_OnAfterResponse(object sender, AfterResponseEventArgs e)
         {
-            FhirResponse = JsonConvert.SerializeObject(e.RawResponse, Formatting.Indented);
+            StringBuilder sb = new StringBuilder();
+
+            _jsSerializer.Serialize(e.RawResponse, sb);
+
+            var obj = JsonConvert.DeserializeObject(sb.ToString());
+
+            FhirResponse = JsonConvert.SerializeObject(obj, Formatting.Indented);
         }
 
         public List<DocReference> SearchDocumentReference(string searchParameter, string searchValue)

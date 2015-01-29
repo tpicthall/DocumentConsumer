@@ -238,7 +238,7 @@
             this.btnRequest.Location = new System.Drawing.Point(440, 112);
             this.btnRequest.Name = "btnRequest";
             this.btnRequest.Size = new System.Drawing.Size(75, 23);
-            this.btnRequest.TabIndex = 14;
+            this.btnRequest.TabIndex = 6;
             this.btnRequest.Text = "Request";
             this.btnRequest.UseVisualStyleBackColor = true;
             this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
@@ -248,7 +248,7 @@
             this.btnResponse.Location = new System.Drawing.Point(521, 112);
             this.btnResponse.Name = "btnResponse";
             this.btnResponse.Size = new System.Drawing.Size(75, 23);
-            this.btnResponse.TabIndex = 15;
+            this.btnResponse.TabIndex = 7;
             this.btnResponse.Text = "Response";
             this.btnResponse.UseVisualStyleBackColor = true;
             this.btnResponse.Click += new System.EventHandler(this.btnResponse_Click);
